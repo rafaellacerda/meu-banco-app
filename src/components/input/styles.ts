@@ -1,6 +1,16 @@
 import { colors } from '@/theme/colors';
 import { theme } from '@/theme/theme';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+type TInputProps = {
+	type: React.HTMLInputTypeAttribute | undefined;
+	variant?: 'silver';
+};
+
+type TBoxInputProps = {
+	variant?: 'silver';
+	height?: 'md' | 'lg';
+};
 
 export const Group = styled.div`
 	display: flex;
@@ -10,20 +20,61 @@ export const Group = styled.div`
 	margin-bottom: ${theme.container.margin['m-2']};
 `;
 
-export const Input = styled.input`
+export const WrapperInput = styled.div<TBoxInputProps>`
 	display: block;
+	position: relative;
 
 	width: 100%;
-	height: 2.875rem;
 
 	padding: 0 ${theme.container.padding['p-2']};
 
 	background-clip: padding-box;
-	background-color: ${colors.white};
+	background-color: ${({ variant }) => (variant === 'silver' ? 'transparent' : colors.white)};
+	border: 2px solid ${({ variant }) => (variant === 'silver' ? colors.white : colors.silver[200])};
 
-	border: 2px solid ${colors.silver[200]};
 	border-radius: ${theme.container.borderRadius['br-1']};
 	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+	${({ height }) =>
+		height === 'lg' &&
+		css`
+			height: 2.875rem;
+		`}
+
+	${({ height }) =>
+		height === 'md' &&
+		css`
+			height: 2.25rem;
+		`}
+
+	span {
+		position: absolute;
+		top: 10px;
+		left: 6px;
+
+		${({ height }) =>
+			height === 'md' &&
+			css`
+				top: 6px;
+			`}
+	}
+`;
+
+export const Input = styled.input<TInputProps>`
+	border: none;
+	width: 100%;
+	height: 100%;
+
+	color: ${({ variant }) => (variant === 'silver' ? colors.white : colors.black)};
+	background-color: ${({ variant }) => (variant === 'silver' ? 'transparent' : colors.white)};
+	padding-left: ${({ type }) => (type === 'search' ? theme.container.padding['p-4'] : 0)};
+
+	${({ variant }) =>
+		variant === 'silver' &&
+		css`
+			&::-webkit-input-placeholder{
+			color:${colors.white};
+		`}
 `;
 
 export const Label = styled.label`
