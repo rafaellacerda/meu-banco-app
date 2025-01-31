@@ -2,7 +2,9 @@ import { colors } from '@/theme/colors';
 import { theme } from '@/theme/theme';
 import styled from 'styled-components';
 
-type TButtonProps = {};
+type TButtonProps = {
+	variant?: 'silver';
+};
 
 export const Button = styled.button<TButtonProps>`
 	display: flex;
@@ -25,7 +27,14 @@ export const Button = styled.button<TButtonProps>`
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 300ms;
 
-	&:hover {
+	&:hover,
+	&:disabled {
 		background: ${colors.green[200]};
+	}
+`;
+
+export const Spinner = styled.div`
+	svg {
+		width: 30px;
 	}
 `;

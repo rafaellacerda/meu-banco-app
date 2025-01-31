@@ -1,6 +1,7 @@
 import { ComponentProps } from 'react';
-import { Button as ButtonComponent } from './styles';
-// import { Spinner } from './Spinner';
+
+import { Icon } from '../icon/icon';
+import { Button as ButtonComponent, Spinner } from './styles';
 
 interface ButtonProps extends ComponentProps<'button'> {
 	isLoading?: boolean;
@@ -11,7 +12,11 @@ export function Button({ className, isLoading, disabled, children, variant, ...p
 	return (
 		<ButtonComponent {...props} disabled={disabled || isLoading}>
 			{!isLoading && children}
-			{/* {isLoading && <Spinner className="w-6 h-6" />} */}
+			{isLoading && (
+				<Spinner>
+					<Icon type="spinner" />
+				</Spinner>
+			)}
 		</ButtonComponent>
 	);
 }
