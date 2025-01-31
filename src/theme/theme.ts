@@ -2,7 +2,7 @@ export const theme = {
 	container: {
 		borderRadius: {
 			'br-1': '0.375rem',
-			'br-2': '',
+			'br-2': '0.5rem',
 			'br-3': '',
 		},
 		padding: {
@@ -11,6 +11,8 @@ export const theme = {
 			'p-3': '1rem',
 			'p-4': '1.5rem',
 			'p-5': '2rem',
+			'p-6': '2.5rem',
+			'p-7': '3rem',
 		},
 		gap: {
 			'g-1': '0.25rem',

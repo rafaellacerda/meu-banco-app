@@ -29,4 +29,33 @@ export default createGlobalStyle`
     li {
         list-style: none;
     }
+
+    input:-internal-autofill-selected {
+        appearance: menulist-button;
+        background-image: none !important;
+        background-color: transparent !important;
+        color: transparent !important;
+    }
+
+    input[type="search"]::-webkit-search-decoration,
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-results-button,
+    input[type="search"]::-webkit-search-results-decoration {
+        display: none;
+    }
+
+
+    .main-app {
+        display: flex; 
+        width: 100%; 
+        height: 100%;
+    }
+
+    .container-app {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        height: 100vh;
+    }
 `;
