@@ -1,12 +1,6 @@
-export default function UserIcon({
-	width = 21,
-	height = 20,
-	color = '#FFF',
-}: {
-	width: number;
-	height: number;
-	color: string;
-}) {
+import { TIconProps } from '../types';
+
+export default function UserIcon({ width = 21, height = 20, color = '#FFF' }: TIconProps) {
 	return (
 		<svg width={21} height={20} viewBox={`0 0 ${width} ${height}`} fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path

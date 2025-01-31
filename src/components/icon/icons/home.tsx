@@ -1,12 +1,6 @@
-export default function HomeIcon({
-	width = 16,
-	height = 17,
-	color = '#484848',
-}: {
-	width: number;
-	height: number;
-	color: string;
-}) {
+import { TIconProps } from '../types';
+
+export default function HomeIcon({ width = 16, height = 17, color = '#484848' }: TIconProps) {
 	return (
 		<svg
 			width={width}

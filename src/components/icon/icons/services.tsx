@@ -1,12 +1,6 @@
-export default function ServicesIcon({
-	width = 16,
-	height = 16,
-	color = '#484848',
-}: {
-	width: number;
-	height: number;
-	color: string;
-}) {
+import { TIconProps } from '../types';
+
+export default function ServicesIcon({ width = 16, height = 16, color = '#484848' }: TIconProps) {
 	return (
 		<svg
 			width={width}

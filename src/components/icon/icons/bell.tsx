@@ -1,12 +1,6 @@
-export default function SearchIcon({
-	width = 21,
-	height = 20,
-	color = '#FFF',
-}: {
-	width: number;
-	height: number;
-	color: string;
-}) {
+import { TIconProps } from '../types';
+
+export default function SearchIcon({ width = 21, height = 20, color = '#FFF' }: TIconProps) {
 	return (
 		<svg
 			width={width}
