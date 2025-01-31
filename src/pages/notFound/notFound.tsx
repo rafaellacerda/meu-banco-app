@@ -1,3 +1,10 @@
+import { Main, Title } from './styles';
+
 export default function NotFound() {
-	return <h1>Not found</h1>;
+	return (
+		<Main>
+			<Title>404 :(</Title>
+			<Title>Página não encontrada!</Title>
+		</Main>
+	);
 }
