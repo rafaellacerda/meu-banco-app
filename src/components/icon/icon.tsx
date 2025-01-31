@@ -1,17 +1,18 @@
 import { lazy } from 'react';
-import { TMainIconProps } from './types.js';
+import { TMainIconProps } from './types';
 
-const Bell = lazy(() => import('./icons/bell.js'));
-const Home = lazy(() => import('./icons/home.js'));
-const Plus = lazy(() => import('./icons/plus.js'));
-const Search = lazy(() => import('./icons/search.js'));
-const Services = lazy(() => import('./icons/services.js'));
-const Settings = lazy(() => import('./icons/settings.js'));
-const Transfer = lazy(() => import('./icons/transfer.js'));
-const User = lazy(() => import('./icons/user.js'));
-const Wallet = lazy(() => import('./icons/wallet.js'));
+const Bell = lazy(() => import('./icons/bell'));
+const Home = lazy(() => import('./icons/home'));
+const Plus = lazy(() => import('./icons/plus'));
+const Search = lazy(() => import('./icons/search'));
+const Services = lazy(() => import('./icons/services'));
+const Settings = lazy(() => import('./icons/settings'));
+const Transfer = lazy(() => import('./icons/transfer'));
+const User = lazy(() => import('./icons/user'));
+const Wallet = lazy(() => import('./icons/wallet'));
+const Spinner = lazy(() => import('./icons/spinner'));
 
-export default function Icon({ width, height, color, type }: TMainIconProps) {
+export function Icon({ width, height, color, type }: TMainIconProps) {
 	const props = { width, height, color };
 	const component = {
 		bell: <Bell {...props} />,
@@ -23,6 +24,7 @@ export default function Icon({ width, height, color, type }: TMainIconProps) {
 		transfer: <Transfer {...props} />,
 		user: <User {...props} />,
 		wallet: <Wallet {...props} />,
+		spinner: <Spinner {...props} />,
 	};
 
 	return component[type];

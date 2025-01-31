@@ -1,9 +1,9 @@
 export type TIconProps = {
-	width: number;
-	height: number;
-	color: string;
+	width?: number;
+	height?: number;
+	color?: string;
 };
 
 export type TMainIconProps = {
-	type: 'bell' | 'home' | 'plus' | 'search' | 'services' | 'settings' | 'transfer' | 'user' | 'wallet';
+	type: 'bell' | 'home' | 'plus' | 'search' | 'services' | 'settings' | 'transfer' | 'user' | 'wallet' | 'spinner';
 } & TIconProps;
