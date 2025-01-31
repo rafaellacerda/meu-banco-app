@@ -54,4 +54,10 @@ export const theme = {
 			foreground: '',
 		},
 	},
+	breakpoints: {
+		mobile: '24rem',
+		tablet: '36rem',
+		laptop: '64rem',
+		desktop: '80rem',
+	},
 };
