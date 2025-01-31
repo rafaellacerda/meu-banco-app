@@ -1,15 +1,38 @@
 export const theme = {
 	container: {
-		center: true,
-		padding: '2rem',
-		screens: {
-			'2xl': '1400px',
+		borderRadius: {
+			'br-1': '',
+			'br-2': '',
+			'br-3': '',
+		},
+		padding: {
+			'p-1': '0.5rem',
+			'p-2': '1rem',
+			'p-3': '1.5rem',
+			'p-4': '2rem',
+		},
+		gap: {
+			'g-1': '0.5rem',
+			'g-2': '1rem',
+			'g-3': '1.5rem',
+			'g-4': '2rem',
+		},
+		margin: {
+			'm-1': '0.5rem',
+			'm-2': '1rem',
+			'm-3': '1.5rem',
+			'm-4': '2rem',
 		},
 	},
+	fontSize: {
+		'fs-1': '3rem', //48px
+		'fs-2': '1.5rem', //24px
+		'fs-3': '1.125rem', //18px
+		'fs-4': '1rem', //16px
+		'fs-5': '0.875rem', //14px
+		'fs-6': '0.75rem', //12px
+	},
 	colors: {
-		border: '',
-		input: '',
-		ring: '',
 		background: '',
 		foreground: '',
 		primary: {
@@ -24,22 +47,9 @@ export const theme = {
 			default: '',
 			foreground: '',
 		},
-		accent: {
-			default: '',
-			foreground: '',
-		},
-		popover: {
-			default: '',
-			foreground: '',
-		},
 		card: {
 			default: '',
 			foreground: '',
 		},
-	},
-	borderRadius: {
-		lg: '',
-		md: '',
-		sm: '',
 	},
 };
