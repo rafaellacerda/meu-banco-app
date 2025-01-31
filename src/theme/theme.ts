@@ -1,7 +1,7 @@
 export const theme = {
 	container: {
 		borderRadius: {
-			'br-1': '',
+			'br-1': '0.375rem',
 			'br-2': '',
 			'br-3': '',
 		},
