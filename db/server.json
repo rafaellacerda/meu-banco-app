@@ -1,0 +1,41 @@
+{
+	"user": [
+		{
+			"id": 1,
+			"name": "Tide Cardoso",
+			"taxid": "02663760021",
+			"user": "tidecardoso@gmail.com",
+			"password": "Tide123!"
+		}
+	],
+	"bankAccount": [
+		{
+			"id": 1,
+			"userId": 1,
+			"branch": 1234,
+			"number": 99898,
+			"digit": 1,
+			"currentBalance": 1000
+		}
+	],
+	"cards": [
+		{
+			"id": 1,
+			"userId": 1,
+			"number": 6549187768810475,
+			"limit": 3000,
+			"brand": "MASTERCARD",
+			"type": "MULTIPLE"
+		}
+	],
+	"cardTransactions": [
+		{
+			"id": 1,
+			"cardId": 1,
+			"description": "",
+			"value": 1,
+			"date": "",
+			"type": ""
+		}
+	]
+}
