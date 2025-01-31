@@ -20,7 +20,7 @@ export const Header = styled.header`
 	display: flex;
 	justify-content: center;
 
-	padding: ${theme.container.padding['p-3']};
+	padding: ${theme.container.padding['p-4']} ${theme.container.padding['p-3']} ${theme.container.padding['p-3']};
 `;
 
 export const ListNav = styled.ul`
@@ -30,12 +30,13 @@ export const ListNav = styled.ul`
 
 	width: 100%;
 
-	margin-top: 2.2rem;
+	margin-top: ${theme.container.margin['m-4']};
 `;
 
 export const Item = styled.li<TItemProps>`
 	list-style: none;
-	width: 80%;
+
+	width: calc(100% - ${theme.container.padding['p-5']});
 	height: 3.375rem;
 
 	display: flex;
@@ -98,10 +99,11 @@ export const Item = styled.li<TItemProps>`
 `;
 
 export const Footer = styled.footer`
+	height: 100%;
+
 	display: flex;
 	align-items: flex-end;
-	height: 100%;
-	padding: ${theme.container.padding['p-3']};
+	padding: ${theme.container.padding['p-3']} ${theme.container.padding['p-3']} ${theme.container.padding['p-4']};
 `;
 
 export const WrapperBox = styled.div`
@@ -130,4 +132,9 @@ export const SubtitleFooter = styled.span`
 	font-size: ${theme.fontSize['fs-4']};
 
 	padding: ${theme.container.margin['m-2']} 0;
+`;
+
+export const WrapperButton = styled.div`
+	width: 8.3rem;
+	display: block;
 `;

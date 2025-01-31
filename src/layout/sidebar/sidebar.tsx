@@ -10,7 +10,7 @@ import { Box } from '@/components/box/box';
 import { Icon } from '@/components/icon/icon';
 import { Button } from '@/components/button/button';
 
-import { Header, Item, ListNav, Nav, Footer, WrapperBox, TitleFooter, SubtitleFooter } from './styles';
+import { Header, Item, ListNav, Nav, Footer, WrapperBox, TitleFooter, SubtitleFooter, WrapperButton } from './styles';
 
 export function Sidebar() {
 	const location = useLocation();
@@ -57,7 +57,9 @@ export function Sidebar() {
 							<span> de ajuda?</span>
 						</TitleFooter>
 						<SubtitleFooter>Fale com um dos nossos especialistas</SubtitleFooter>
-						<Button>Contatar</Button>
+						<WrapperButton>
+							<Button variant="silver">Contatar</Button>
+						</WrapperButton>
 					</Box>
 				</WrapperBox>
 			</Footer>

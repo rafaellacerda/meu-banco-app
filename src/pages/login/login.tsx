@@ -18,9 +18,14 @@ import {
 	GroupNewAccount,
 	GroupButtonUser,
 } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
-	const handleSubmit = () => {};
+	const navigate = useNavigate();
+
+	const handleSubmit = () => {
+		navigate('/dashboard');
+	};
 
 	return (
 		<Main>
@@ -65,7 +70,9 @@ export default function Login() {
 							<ButtonLink variant="link">Esqueceu sua senha?</ButtonLink>
 						</GroupButtonUser>
 
-						<Button type="submit">ENTRAR</Button>
+						<Button type="button" onClick={handleSubmit} isLoading={false}>
+							ENTRAR
+						</Button>
 					</form>
 
 					<GroupNewAccount>

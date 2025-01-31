@@ -1,9 +1,9 @@
 import { colors } from '@/theme/colors';
 import { theme } from '@/theme/theme';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 type TButtonProps = {
-	variant?: 'silver';
+	variant?: 'danger' | 'silver';
 };
 
 export const Button = styled.button<TButtonProps>`
@@ -26,6 +26,14 @@ export const Button = styled.button<TButtonProps>`
 	transition-property: all;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 300ms;
+
+	${({ variant }) =>
+		variant === 'silver' &&
+		css`
+			background: transparent;
+			border: 1px solid #fff;
+			height: 2.375rem;
+		`}
 
 	&:hover,
 	&:disabled {
