@@ -9,8 +9,8 @@ export const Main = styled.main`
 	flex-direction: column;
 	justify-content: center;
 
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 
 	background: ${colors.green[100]};
 `;

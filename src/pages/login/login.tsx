@@ -20,10 +20,13 @@ import {
 } from './styles';
 import { useNavigate } from 'react-router-dom';
 
+import { teste } from '../../stores/global/auth';
+
 export default function Login() {
 	const navigate = useNavigate();
 
 	const handleSubmit = () => {
+		teste();
 		navigate('/dashboard');
 	};
 

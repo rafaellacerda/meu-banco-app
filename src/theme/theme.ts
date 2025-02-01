@@ -26,6 +26,8 @@ export const theme = {
 			'm-2': '1rem',
 			'm-3': '1.5rem',
 			'm-4': '2rem',
+			'm-5': '2.5rem',
+			'm-6': '3rem',
 		},
 	},
 	fontSize: {

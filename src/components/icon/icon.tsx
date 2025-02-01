@@ -11,6 +11,7 @@ const Transfer = lazy(() => import('./icons/transfer'));
 const User = lazy(() => import('./icons/user'));
 const Wallet = lazy(() => import('./icons/wallet'));
 const Spinner = lazy(() => import('./icons/spinner'));
+const Mastercard = lazy(() => import('./icons/mastercard'));
 
 export function Icon({ width, height, color, type }: TMainIconProps) {
 	const props = { width, height, color };
@@ -25,6 +26,7 @@ export function Icon({ width, height, color, type }: TMainIconProps) {
 		user: <User {...props} />,
 		wallet: <Wallet {...props} />,
 		spinner: <Spinner {...props} />,
+		mastercard: <Mastercard />,
 	};
 
 	return component[type];

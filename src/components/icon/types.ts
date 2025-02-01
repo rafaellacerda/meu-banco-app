@@ -5,5 +5,16 @@ export type TIconProps = {
 };
 
 export type TMainIconProps = {
-	type: 'bell' | 'home' | 'plus' | 'search' | 'services' | 'settings' | 'transfer' | 'user' | 'wallet' | 'spinner';
+	type:
+		| 'bell'
+		| 'home'
+		| 'plus'
+		| 'search'
+		| 'services'
+		| 'settings'
+		| 'transfer'
+		| 'user'
+		| 'wallet'
+		| 'spinner'
+		| 'mastercard';
 } & TIconProps;

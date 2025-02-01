@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import logo from '../../assets/logo.png';
 
@@ -10,14 +10,28 @@ import { Box } from '@/components/box/box';
 import { Icon } from '@/components/icon/icon';
 import { Button } from '@/components/button/button';
 
-import { Header, Item, ListNav, Nav, Footer, WrapperBox, TitleFooter, SubtitleFooter, WrapperButton } from './styles';
+import {
+	Header,
+	Item,
+	ListNav,
+	Nav,
+	Footer,
+	WrapperBox,
+	TitleFooter,
+	SubtitleFooter,
+	WrapperButton,
+	IconSection,
+} from './styles';
 
 export function Sidebar() {
+	const navigate = useNavigate();
 	const location = useLocation();
+
 	const [activeUrl, setActiveUrl] = useState('');
 
 	useEffect(() => {
 		setActiveUrl(location.pathname);
+		if (!ROUTES.find(item => item.href === location.pathname)) navigate('/404');
 	}, [location]);
 
 	return (
@@ -29,21 +43,24 @@ export function Sidebar() {
 				{ROUTES.map((item: TRoutes, index) => (
 					<Item active={activeUrl === item.href} key={`${item.name}-${index}`}>
 						<Link to={item.href}>
-							<Icon
-								type={
-									item.icon as
-										| 'bell'
-										| 'home'
-										| 'plus'
-										| 'search'
-										| 'services'
-										| 'settings'
-										| 'transfer'
-										| 'user'
-										| 'wallet'
-										| 'spinner'
-								}
-							/>
+							<IconSection>
+								<Icon
+									type={
+										item.icon as
+											| 'bell'
+											| 'home'
+											| 'plus'
+											| 'search'
+											| 'services'
+											| 'settings'
+											| 'transfer'
+											| 'user'
+											| 'wallet'
+											| 'spinner'
+											| 'mastercard'
+									}
+								/>
+							</IconSection>
 							{item.name}
 						</Link>
 					</Item>
@@ -51,7 +68,7 @@ export function Sidebar() {
 			</ListNav>
 			<Footer>
 				<WrapperBox>
-					<Box background={colors.green[100]}>
+					<Box background={colors.green[100]} containerPage={true}>
 						<TitleFooter>
 							<span>Precisa</span>
 							<span> de ajuda?</span>

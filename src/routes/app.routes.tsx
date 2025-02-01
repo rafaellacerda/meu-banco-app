@@ -14,7 +14,6 @@ export default function AppRoutes() {
 	return (
 		<Suspense fallback={<Loader />}>
 			<Routes>
-				<Route path="/" element={<Login />} />
 				<Route path="/dashboard" element={<Dashboard />} />
 				<Route path="/services" element={<Services />} />
 				<Route path="/settings" element={<Settings />} />

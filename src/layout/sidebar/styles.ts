@@ -9,7 +9,8 @@ type TItemProps = {
 
 export const Nav = styled.nav`
 	height: 100vh;
-	width: 17.5rem;
+	// width: 17.5rem;
+	width: 19.5rem;
 	background: ${colors.white};
 
 	display: flex;
@@ -30,7 +31,7 @@ export const ListNav = styled.ul`
 
 	width: 100%;
 
-	margin-top: ${theme.container.margin['m-4']};
+	margin-top: ${theme.container.margin['m-6']};
 `;
 
 export const Item = styled.li<TItemProps>`
@@ -65,6 +66,10 @@ export const Item = styled.li<TItemProps>`
 
 		gap: ${theme.container.gap['g-1']};
 		padding-left: ${theme.container.padding['p-1']};
+
+		svg {
+			margin-right: ${theme.container.margin['m-2']};
+		}
 
 		${({ active }) =>
 			active &&
@@ -121,6 +126,10 @@ export const TitleFooter = styled.h1`
 		font-weight: 600;
 		font-size: ${theme.fontSize['fs-2']};
 	}
+`;
+
+export const IconSection = styled.div`
+	width: 30px;
 `;
 
 export const SubtitleFooter = styled.span`
