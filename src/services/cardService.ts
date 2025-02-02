@@ -12,7 +12,7 @@ export async function getCardData({ cardId }: TCardProps) {
 	const { data } = await api.get(`/cards`);
 
 	// mock de filtragem por nao ter api
-	const card = data.find((item: Card) => item.id === cardId);
+	const card = data.find((item: Card) => +item.id === +cardId);
 
 	return {
 		success: true,
@@ -24,7 +24,7 @@ export async function cardTransactions({ cardId }: TTransactionProps): Promise<R
 	const { data } = await api.get(`/cardTransactions`);
 
 	// mock de filtragem por nao ter api
-	const transactions = data.filter((item: Transaction) => item.cardId === cardId);
+	const transactions = data.filter((item: Transaction) => +item.cardId === +cardId);
 
 	return { success: true, data: transactions };
 }
@@ -33,7 +33,7 @@ export async function getLastTransaction({ cardId }: TTransactionProps): Promise
 	const { data } = await api.get(`/cardTransactions`);
 
 	// mock de filtragem por nao ter api
-	const transactions = data.filter((item: Transaction) => item.cardId === cardId);
+	const transactions = data.filter((item: Transaction) => +item.cardId === +cardId);
 	const lastTransaction = data.reduce(
 		(max: any, transacao: any) => (transacao.date > max.date ? transacao : max),
 		transactions[0],
