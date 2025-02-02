@@ -1,0 +1,84 @@
+{
+	"user": [
+		{
+			"id": 1,
+			"name": "Tide Cardoso",
+			"taxid": "02663760021",
+			"user": "tidec",
+			"password": "Tide123!"
+		}
+	],
+	"bankAccount": [
+		{
+			"id": 1,
+			"userId": 1,
+			"branch": 1234,
+			"number": 98787,
+			"digit": 1,
+			"currentBalance": 3000
+		}
+	],
+	"cards": [
+		{
+			"id": 1,
+			"userId": 1,
+			"name": "Tide Cardoso",
+			"validate": "12/32",
+			"number": 6549187768810475,
+			"limit": 10000,
+			"monthLimit": 500,
+			"brand": "MASTERCARD",
+			"type": "MULTIPLE"
+		}
+	],
+	"cardTransactions": [
+		{
+			"id": 1,
+			"date": "01/01/2023",
+			"description": "Apple Store",
+			"value": 10.0,
+			"type": "DEBIT",
+			"cardId": 1
+		},
+		{
+			"id": 2,
+			"date": "01/01/2023",
+			"description": "Restaurante Italiano",
+			"value": 230,
+			"type": "CREDIT",
+			"cardId": 1
+		},
+		{
+			"id": 3,
+			"date": "01/01/2023",
+			"description": "Loja Tatame Vermelho",
+			"value": 700,
+			"type": "CREDIT",
+			"cardId": 1
+		},
+		{
+			"id": 4,
+			"date": "02/01/2023",
+			"description": "Lanchonete Dez",
+			"value": 125,
+			"type": "DEBIT",
+			"cardId": 1
+		},
+		{
+			"id": 5,
+			"date": "03/01/2023",
+			"description": "Bazar Mizutu",
+			"value": 300,
+			"type": "DEBIT",
+			"cardId": 1
+		},
+		{
+			"id": 6,
+			"date": "02/01/2023",
+			"description": "Bazar Mizutu",
+			"value": 120,
+			"type": "DEBIT",
+			"cardId": 1
+		}
+	]
+}
