@@ -5,12 +5,12 @@ import { Button as ButtonComponent, Spinner } from './styles';
 
 interface ButtonProps extends ComponentProps<'button'> {
 	isLoading?: boolean;
-	variant?: 'danger' | 'silver';
+	$variant?: 'danger' | 'silver';
 }
 
-export function Button({ className, isLoading, disabled, children, variant, ...props }: ButtonProps) {
+export function Button({ className, isLoading, disabled, children, $variant, ...props }: ButtonProps) {
 	return (
-		<ButtonComponent variant={variant} {...props} disabled={disabled || isLoading}>
+		<ButtonComponent $variant={$variant} {...props} disabled={disabled || isLoading}>
 			{!isLoading && children}
 			{isLoading && (
 				<Spinner>

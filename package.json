@@ -16,7 +16,10 @@
 		"server": "json-server db/server.json"
 	},
 	"dependencies": {
+		"@hookform/error-message": "^2.0.1",
+		"@hookform/resolvers": "^3.10.0",
 		"axios": "^1.7.9",
+		"date-fns": "^4.1.0",
 		"jotai": "^2.11.2",
 		"json-server": "1.0.0-beta.3",
 		"react": "^18.3.1",

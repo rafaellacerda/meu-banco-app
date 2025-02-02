@@ -41,7 +41,7 @@ export function Sidebar() {
 			</Header>
 			<ListNav>
 				{ROUTES.map((item: TRoutes, index) => (
-					<Item active={activeUrl === item.href} key={`${item.name}-${index}`}>
+					<Item $active={(activeUrl === item.href) as boolean} key={`${item.name}-${index}`}>
 						<Link to={item.href}>
 							<IconSection>
 								<Icon
@@ -68,14 +68,14 @@ export function Sidebar() {
 			</ListNav>
 			<Footer>
 				<WrapperBox>
-					<Box background={colors.green[100]} containerPage={true}>
+					<Box $background={colors.green[100]} $containerPage={true}>
 						<TitleFooter>
 							<span>Precisa</span>
 							<span> de ajuda?</span>
 						</TitleFooter>
 						<SubtitleFooter>Fale com um dos nossos especialistas</SubtitleFooter>
 						<WrapperButton>
-							<Button variant="silver">Contatar</Button>
+							<Button $variant="silver">Contatar</Button>
 						</WrapperButton>
 					</Box>
 				</WrapperBox>

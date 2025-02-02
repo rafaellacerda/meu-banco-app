@@ -1,30 +1,32 @@
+import { useAtom } from 'jotai';
 import { Toaster } from 'sonner';
+import { Suspense, useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import { Sidebar } from '@/layout/sidebar/sidebar';
+import Loader from '@/components/loader/loader';
 import { Header } from '@/layout/header/header';
+import { Sidebar } from '@/layout/sidebar/sidebar';
 
 import AppRoutes from './app.routes';
 import AuthRoutes from './auth.routes';
 import GlobalStyle from '../theme/globalStyles';
 
-import { useAtom } from 'jotai';
-import { userLoggedAtom } from '../stores/global/auth';
-import { Suspense } from 'react';
-import Loader from '@/components/loader/loader';
+import { userLoggedAtom, loadUserAuth } from '../stores/global/auth';
 
 export default function Router() {
-	const [user] = useAtom(userLoggedAtom);
+	const [logged] = useAtom(userLoggedAtom);
 
-	console.log(user);
+	useEffect(() => {
+		if (!logged) loadUserAuth();
+	}, [, logged]);
 
 	return (
 		<Suspense fallback={<Loader />}>
 			<BrowserRouter>
 				<GlobalStyle />
-				<Toaster richColors />
+				<Toaster richColors position="top-right" />
 
-				{user && (
+				{logged && (
 					<main className="main-app">
 						<Sidebar />
 						<section className="container-app">
@@ -34,7 +36,7 @@ export default function Router() {
 					</main>
 				)}
 
-				{!user && <AuthRoutes />}
+				{!logged && <AuthRoutes />}
 			</BrowserRouter>
 		</Suspense>
 	);

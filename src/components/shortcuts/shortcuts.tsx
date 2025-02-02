@@ -8,15 +8,15 @@ import { ShortcutTitle } from './shortcut/title';
 
 interface ShortcutsProps extends ComponentProps<'section'> {}
 interface ShortcutProps extends ComponentProps<'section'> {
-	background?: string;
+	$background?: string;
 }
 
 export function Shortcuts({ children }: ShortcutsProps) {
 	return <ShortcutsComponent>{children}</ShortcutsComponent>;
 }
 
-export function Shortcut({ children, background }: ShortcutProps) {
-	return <ShortcutComponent background={background}>{children}</ShortcutComponent>;
+export function Shortcut({ children, $background }: ShortcutProps) {
+	return <ShortcutComponent $background={$background}>{children}</ShortcutComponent>;
 }
 
 export const ShortcutItem = {

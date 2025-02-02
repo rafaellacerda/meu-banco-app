@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { theme } from '@/theme/theme';
 import { colors } from '@/theme/colors';
 
-type TProgressProps = { width: number; maxWidth?: string };
+type TProgressProps = { $width: number; $maxWidth?: string };
 
 export const Progress = styled.div<TProgressProps>`
 	display: flex;
@@ -15,10 +15,10 @@ export const Progress = styled.div<TProgressProps>`
 	background: ${colors.silver[200]};
 	border-radius: ${theme.container.borderRadius['br-1']};
 
-	${({ maxWidth }) =>
-		!!maxWidth &&
+	${({ $maxWidth }) =>
+		!!$maxWidth &&
 		css`
-			max-width: ${maxWidth};
+			max-width: ${$maxWidth};
 		`}
 
 	&:before {
@@ -31,6 +31,6 @@ export const Progress = styled.div<TProgressProps>`
 		top: 0;
 		left: 0;
 		height: 100%;
-		width: ${({ width }) => width}%;
+		width: ${({ $width }) => $width}%;
 	}
 `;

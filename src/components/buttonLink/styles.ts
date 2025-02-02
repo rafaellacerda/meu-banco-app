@@ -3,8 +3,8 @@ import { theme } from '@/theme/theme';
 import styled, { css } from 'styled-components';
 
 type TButtonLinkProps = {
-	variant?: 'primary' | 'link';
-	size?: 'fs-1' | 'fs-2' | 'fs-3' | 'fs-4' | 'fs-5' | 'fs-6';
+	$variant?: 'primary' | 'link';
+	$size?: 'fs-1' | 'fs-2' | 'fs-3' | 'fs-4' | 'fs-5' | 'fs-6';
 };
 
 export const ButtonLink = styled.button<TButtonLinkProps>`
@@ -16,7 +16,7 @@ export const ButtonLink = styled.button<TButtonLinkProps>`
 
 	font-weight: 500;
 	line-height: 1.25rem;
-	font-size: ${({ size }) => theme.fontSize[size ?? 'fs-5']};
+	font-size: ${({ $size }) => theme.fontSize[$size ?? 'fs-5']};
 
 	white-space: nowrap;
 	background: transparent;
@@ -26,8 +26,8 @@ export const ButtonLink = styled.button<TButtonLinkProps>`
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
 
-	${({ variant }) =>
-		variant === 'link' &&
+	${({ $variant }) =>
+		$variant === 'link' &&
 		css`
 			color: ${colors.blue[100]};
 		`}

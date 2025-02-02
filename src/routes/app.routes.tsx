@@ -2,7 +2,6 @@ import Loader from '@/components/loader/loader';
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-const Login = lazy(() => import('../pages/login/login'));
 const NotFound = lazy(() => import('../pages/notFound/notFound'));
 const Dashboard = lazy(() => import('../pages/dashboard/dashboard'));
 const Services = lazy(() => import('../pages/services/services'));
@@ -19,7 +18,6 @@ export default function AppRoutes() {
 				<Route path="/settings" element={<Settings />} />
 				<Route path="/transfer" element={<Transfer />} />
 				<Route path="/wallet" element={<Wallet />} />
-
 				<Route path="/404" element={<NotFound />} />
 			</Routes>
 		</Suspense>

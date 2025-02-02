@@ -4,7 +4,7 @@ import { theme } from '@/theme/theme';
 import styled from 'styled-components';
 
 type TShortcutProps = {
-	background?: string;
+	$background?: string;
 };
 
 export const Shortcuts = styled.section`
@@ -15,6 +15,12 @@ export const Shortcuts = styled.section`
 	gap: ${theme.container.gap['g-3']};
 
 	background: transparent;
+
+	@media screen and (max-width: 1380px) {
+        flex-wrap: wrap;
+        margin-bottom: 7rem;
+    }
+	}
 `;
 
 export const Shortcut = styled.div<TShortcutProps>`
@@ -25,7 +31,7 @@ export const Shortcut = styled.div<TShortcutProps>`
 	flex-direction: column;
 
 	border-radius: ${theme.container.borderRadius['br-2']};
-	background: ${({ background }) => (!!background ? background : colors.white)};
+	background: ${({ $background }) => (!!$background ? $background : colors.white)};
 
 	padding: ${theme.container.gap['g-3']};
 

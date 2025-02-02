@@ -4,12 +4,12 @@ import styled, { css } from 'styled-components';
 
 type TInputProps = {
 	type: React.HTMLInputTypeAttribute | undefined;
-	variant?: 'silver';
+	$variant?: 'silver';
 };
 
 type TBoxInputProps = {
-	variant?: 'silver';
-	height?: 'md' | 'lg';
+	$variant?: 'silver';
+	$height?: 'md' | 'lg';
 };
 
 export const Group = styled.div`
@@ -29,20 +29,20 @@ export const WrapperInput = styled.div<TBoxInputProps>`
 	padding: 0 ${theme.container.padding['p-2']};
 
 	background-clip: padding-box;
-	background-color: ${({ variant }) => (variant === 'silver' ? 'transparent' : colors.white)};
-	border: 2px solid ${({ variant }) => (variant === 'silver' ? colors.white : colors.silver[200])};
+	background-color: ${({ $variant }) => ($variant === 'silver' ? 'transparent' : colors.white)};
+	border: 2px solid ${({ $variant }) => ($variant === 'silver' ? colors.white : colors.silver[200])};
 
 	border-radius: ${theme.container.borderRadius['br-1']};
 	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
-	${({ height }) =>
-		height === 'lg' &&
+	${({ $height }) =>
+		$height === 'lg' &&
 		css`
 			height: 2.875rem;
 		`}
 
-	${({ height }) =>
-		height === 'md' &&
+	${({ $height }) =>
+		$height === 'md' &&
 		css`
 			height: 2.25rem;
 		`}
@@ -52,8 +52,8 @@ export const WrapperInput = styled.div<TBoxInputProps>`
 		top: 10px;
 		left: 6px;
 
-		${({ height }) =>
-			height === 'md' &&
+		${({ $height }) =>
+			$height === 'md' &&
 			css`
 				top: 6px;
 			`}
@@ -65,12 +65,12 @@ export const Input = styled.input<TInputProps>`
 	width: 100%;
 	height: 100%;
 
-	color: ${({ variant }) => (variant === 'silver' ? colors.white : colors.black)};
-	background-color: ${({ variant }) => (variant === 'silver' ? 'transparent' : colors.white)};
+	color: ${({ $variant }) => ($variant === 'silver' ? colors.white : colors.black)};
+	background-color: ${({ $variant }) => ($variant === 'silver' ? 'transparent' : colors.white)};
 	padding-left: ${({ type }) => (type === 'search' ? theme.container.padding['p-4'] : 0)};
 
-	${({ variant }) =>
-		variant === 'silver' &&
+	${({ $variant }) =>
+		$variant === 'silver' &&
 		css`
 			&::-webkit-input-placeholder{
 			color:${colors.white};
@@ -81,4 +81,12 @@ export const Label = styled.label`
 	font-weight: 400;
 	color: ${colors.gray[100]};
 	font-size: ${theme.fontSize['fs-3']};
+`;
+
+export const ErrorMessage = styled.small`
+	display: flex;
+	margin-top: -8px;
+	margin-bottom: 15px;
+
+	color: red;
 `;

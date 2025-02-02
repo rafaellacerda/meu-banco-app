@@ -4,7 +4,7 @@ import { theme } from '@/theme/theme';
 import { colors } from '@/theme/colors';
 
 type TItemProps = {
-	active?: boolean;
+	$active?: boolean;
 };
 
 export const Nav = styled.nav`
@@ -52,7 +52,7 @@ export const Item = styled.li<TItemProps>`
 	padding: ${theme.container.padding['p-1']};
 	margin: 2px 0;
 
-	background: ${({ active }) => (active ? colors.green[100] : '')};
+	background: ${({ $active }) => ($active ? colors.green[100] : '')};
 
 	a {
 		text-decoration: none;
@@ -71,8 +71,8 @@ export const Item = styled.li<TItemProps>`
 			margin-right: ${theme.container.margin['m-2']};
 		}
 
-		${({ active }) =>
-			active &&
+		${({ $active }) =>
+			$active &&
 			css`
 				color: ${colors.white};
 				background: ${colors.green[100]};
@@ -129,7 +129,11 @@ export const TitleFooter = styled.h1`
 `;
 
 export const IconSection = styled.div`
-	width: 30px;
+	width: 35px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `;
 
 export const SubtitleFooter = styled.span`
@@ -137,10 +141,11 @@ export const SubtitleFooter = styled.span`
 	display: block;
 	color: ${colors.white};
 
-	font-weight: 300;
+	font-weight: 400;
 	font-size: ${theme.fontSize['fs-4']};
 
-	padding: ${theme.container.margin['m-2']} 0;
+	padding: ${theme.container.padding['p-2']} 0;
+	margin-top: ${theme.container.margin['m-1']};
 `;
 
 export const WrapperButton = styled.div`

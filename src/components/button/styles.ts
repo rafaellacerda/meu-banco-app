@@ -3,7 +3,7 @@ import { theme } from '@/theme/theme';
 import styled, { css } from 'styled-components';
 
 type TButtonProps = {
-	variant?: 'danger' | 'silver';
+	$variant?: 'danger' | 'silver';
 };
 
 export const Button = styled.button<TButtonProps>`
@@ -27,8 +27,8 @@ export const Button = styled.button<TButtonProps>`
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 300ms;
 
-	${({ variant }) =>
-		variant === 'silver' &&
+	${({ $variant }) =>
+		$variant === 'silver' &&
 		css`
 			background: transparent;
 			border: 1px solid #fff;

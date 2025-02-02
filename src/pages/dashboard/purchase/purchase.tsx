@@ -1,11 +1,16 @@
 import { Flex } from '@/components/flex/styles';
 import { Transaction } from '@/entities/transaction';
-import { Font, PurchaseContainer, PurchaseDateGroup, PurchaseItem } from '../styles';
-import { colors } from '@/theme/colors';
+
 import { theme } from '@/theme/theme';
+import { colors } from '@/theme/colors';
+
+import { Font, PurchaseContainer, PurchaseDateGroup, PurchaseItem } from '../styles';
+import { useEffect, useState } from 'react';
+import { cardTransactions } from '@/services/cardService';
+import { shortMonth } from '@/utils/formatting';
 
 type PurchaseListProps = {
-	purchaseList: Transaction[];
+	data: Transaction[];
 };
 
 enum PurchaseType {
@@ -13,33 +18,42 @@ enum PurchaseType {
 	CREDIT = 'Crédito',
 }
 
-export function Purchase({ purchaseList }: PurchaseListProps) {
-	const groupedTransactions = purchaseList.reduce((acc, purchase) => {
-		acc[purchase.date] = acc[purchase.date] || [];
-		acc[purchase.date].push(purchase);
-		return acc;
-	}, {} as Record<string, Transaction[]>);
+export function Purchase() {
+	const [groupedTransactions, setGroupedTransactions] = useState({} as Record<string, Transaction[]>);
+
+	useEffect(() => {
+		(async () => {
+			const { data }: PurchaseListProps = await cardTransactions({ cardId: 1 });
+			const groupedTransactions = data.reduce((acc, purchase) => {
+				acc[purchase.date] = acc[purchase.date] || [];
+				acc[purchase.date].push(purchase);
+				return acc;
+			}, {} as Record<string, Transaction[]>);
+
+			setGroupedTransactions(groupedTransactions);
+		})();
+	}, []);
 
 	return (
-		<Flex flexDirection="column" height="auto">
+		<Flex $direction="column" $height="auto">
 			{Object.entries(groupedTransactions).map(([date, items]) => (
-				<PurchaseDateGroup flexDirection="column" height="auto" key={date}>
-					<Font color={colors.green[100]} size={theme.fontSize['fs-5']} weight="700">
-						{date}
+				<PurchaseDateGroup $direction="column" $height="auto" key={date}>
+					<Font $color={colors.green[100]} $size={theme.fontSize['fs-5']} $weight="700">
+						{shortMonth(date)}
 					</Font>
 					<PurchaseContainer>
 						{items.map(({ id, description, type, value }) => (
 							<PurchaseItem key={id}>
-								<Flex align="center" justify="space-between" height="auto">
-									<Flex flexDirection="column" width="fit-content">
-										<Font size={theme.fontSize['fs-5']} weight="400" color={colors.gray[100]}>
+								<Flex $align="center" $justify="space-between" $height="auto">
+									<Flex $direction="column" $width="fit-content">
+										<Font $size={theme.fontSize['fs-5']} $weight="400" $color={colors.gray[100]}>
 											{description}
 										</Font>
-										<Font size={theme.fontSize['fs-6']} weight="600" color={colors.silver[300]}>
+										<Font $size={theme.fontSize['fs-6']} $weight="600" $color={colors.silver[300]}>
 											Compra no {PurchaseType[type].toLowerCase()}
 										</Font>
 									</Flex>
-									<Font size={theme.fontSize['fs-5']} color={colors.green[100]}>
+									<Font $size={theme.fontSize['fs-5']} $color={colors.green[100]}>
 										R$ {value.toFixed(2)}
 									</Font>
 								</Flex>

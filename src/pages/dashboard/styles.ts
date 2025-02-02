@@ -5,13 +5,19 @@ import styled from 'styled-components';
 import { Flex } from '@/components/flex/styles';
 
 type TAccountDataProps = {
-	height: 'md' | 'lg';
+	$height: 'md' | 'lg';
 };
 
-type FontProps = {
-	size?: string;
-	color?: string;
-	weight?: '300' | '400' | '600' | '700';
+type TFontProps = {
+	$size?: string;
+	$color?: string;
+	$weight?: '300' | '400' | '600' | '700';
+};
+
+type TImageProps = {
+	$margin?: string;
+	$width?: string;
+	$height?: string;
 };
 
 export const Main = styled.main`
@@ -25,6 +31,10 @@ export const Main = styled.main`
 	background: ${colors.green[100]};
 	padding: ${theme.container.padding['p-5']} ${theme.container.padding['p-6']} ${theme.container.padding['p-5']}
 		${theme.container.padding['p-7']};
+
+	@media screen and (max-width: 1380px) {
+		padding: ${theme.container.padding['p-5']} 0 ${theme.container.padding['p-5']} ${theme.container.padding['p-7']};
+	}
 `;
 
 export const Wrapper = styled.div`
@@ -68,6 +78,12 @@ export const AccountWrapper = styled.section`
 	width: 100%;
 	gap: 1.5rem;
 	margin-top: ${theme.container.margin['m-1']};
+
+	@media screen and (max-width: 1380px) {
+		flex-direction: column;
+		overflow-y: auto;
+		padding-bottom: ${theme.container.padding['p-7']};
+	}
 `;
 
 export const AccountData = styled.div<TAccountDataProps>`
@@ -76,17 +92,16 @@ export const AccountData = styled.div<TAccountDataProps>`
 	width: 50%;
 	min-width: 34rem;
 	height: fit-content;
-	// height: ${({ height }) => (height === 'md' ? '18.781rem' : '36.875rem')};
 
 	margin-top: 1rem;
 
 	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 `;
 
-export const Font = styled.span<FontProps>`
-	font-size: ${({ size }) => size || '1rem'};
-	font-weight: ${({ weight }) => weight || 'normal'};
-	color: ${({ color }) => color || colors.gray[100]};
+export const Font = styled.span<TFontProps>`
+	font-size: ${({ $size }) => $size || '1rem'};
+	font-weight: ${({ $weight }) => $weight || 'normal'};
+	color: ${({ $color }) => $color || colors.gray[100]};
 `;
 
 export const LastPurchase = styled(Flex)`
@@ -156,4 +171,10 @@ export const Card = styled.div`
 		color: ${colors.white};
 		font-family: 'JetBrains Mono';
 	}
+`;
+
+export const Image = styled.img<TImageProps>`
+	width: ${({ $width }) => $width ?? '100%'};
+	height: ${({ $height }) => $height ?? '100%'};
+	margin: ${({ $margin }) => $margin ?? 'inherit'};
 `;

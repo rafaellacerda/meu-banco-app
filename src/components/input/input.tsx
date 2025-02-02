@@ -1,29 +1,29 @@
 import { ComponentProps, forwardRef } from 'react';
-import { Input as InputComponent, Group, Label, WrapperInput } from './styles';
 import { Icon } from '../icon/icon';
 import { colors } from '@/theme/colors';
-// import { CrossCircledIcon } from '@radix-ui/react-icons';
+import { InputError } from './inputError/inputError';
+import { Input as InputComponent, Group, Label, WrapperInput } from './styles';
 
 interface InputProps extends ComponentProps<'input'> {
 	name?: string;
 	label?: string;
 	error?: string;
-	variant?: 'silver';
-	height?: 'md' | 'lg';
+	$variant?: 'silver';
+	$height?: 'md' | 'lg';
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-	({ placeholder, name, id, error, className, type, label, variant, height = 'lg', ...props }, ref) => {
+	({ placeholder, name, id, error, className, type, label, $variant, $height = 'lg', ...props }, ref) => {
 		const inputId = id ?? name;
 
 		return (
 			<Group>
 				{!!label && <Label htmlFor={inputId}>{label}</Label>}
 
-				<WrapperInput variant={variant} height={height}>
+				<WrapperInput $variant={$variant} $height={$height}>
 					{type === 'search' && (
 						<span>
-							<Icon type="search" color={variant === 'silver' ? colors.white : colors.gray[100]} />
+							<Icon type="search" color={$variant === 'silver' ? colors.white : colors.gray[100]} />
 						</span>
 					)}
 					<InputComponent
@@ -33,7 +33,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 						id={inputId}
 						type={type}
 						placeholder={placeholder}
-						variant={variant}
+						$variant={$variant}
 						autoComplete="false"
 					/>
 				</WrapperInput>
@@ -47,3 +47,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 		);
 	},
 );
+
+export const InputItem = {
+	Error: InputError,
+};

@@ -27,7 +27,7 @@ export function DashboardShortcuts() {
 				<ShortcutItem.Label>Cartões</ShortcutItem.Label>
 				<ShortcutItem.Title>R$ 9.532,62</ShortcutItem.Title>
 			</Shortcut>
-			<Shortcut background={colors.silver[100]}>
+			<Shortcut $background={colors.silver[100]}>
 				<ShortcutButton>
 					<Icon type="plus" />
 					<span>

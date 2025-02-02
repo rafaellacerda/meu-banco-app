@@ -37,3 +37,5 @@ export const ROUTES = [
 		claims: [],
 	},
 ];
+
+export const UNAUTHENTICATEDROUTES = ['/', '/404'];
