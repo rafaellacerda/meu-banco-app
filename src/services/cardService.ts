@@ -25,6 +25,11 @@ export async function cardTransactions({ cardId }: TTransactionProps): Promise<R
 
 	// mock de filtragem por nao ter api
 	const transactions = data.filter((item: Transaction) => +item.cardId === +cardId);
+	transactions.sort((a: Transaction, b: Transaction) => {
+		const dateA: any = new Date(a.date.split('/').reverse().join('-'));
+		const dateB: any = new Date(b.date.split('/').reverse().join('-'));
+		return dateB - dateA;
+	});
 
 	return { success: true, data: transactions };
 }
@@ -35,7 +40,7 @@ export async function getLastTransaction({ cardId }: TTransactionProps): Promise
 	// mock de filtragem por nao ter api
 	const transactions = data.filter((item: Transaction) => +item.cardId === +cardId);
 	const lastTransaction = data.reduce(
-		(max: any, transacao: any) => (transacao.date > max.date ? transacao : max),
+		(max: Transaction, transacao: Transaction) => (transacao.date > max.date ? transacao : max),
 		transactions[0],
 	);
 
