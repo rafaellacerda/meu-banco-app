@@ -42,6 +42,18 @@ Inicie o ambiente de desenvolvimento:
 $ pnpm dev
 ```
 
+Rodar testes e2e:
+
+```bash
+$ pnpm run test:playwright
+```
+
+Instalar chromium playwright:
+
+```bash
+$ npx playwright install chromium
+```
+
 ### 2. Dados de Autenticação
 
 Os dados utilizados pela aplicação estão localizados na pasta `db/server.json`. A autenticação é realizada com base na tabela `user`, contendo os campos `user` e `password`. O sistema utiliza esses dados para validar as credenciais de login.
